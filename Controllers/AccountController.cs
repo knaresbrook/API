@@ -121,7 +121,8 @@ namespace API.Controllers
                     return new UserTokenDto
                     {
                         userName = user.UserName,
-                        token = GetToken(user)
+                        token = GetToken(user),
+                        roleName = await this.GetRole(user.UserName)
                     };
                 }
                 else
@@ -148,7 +149,8 @@ namespace API.Controllers
             return new UserTokenDto
             {
                 userName = user.UserName,
-                token = GetToken(user)
+                token = GetToken(user),
+                roleName = await this.GetRole(user.UserName)
             };
         }
 
